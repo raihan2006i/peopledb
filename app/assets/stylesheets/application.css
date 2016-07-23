@@ -10,6 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap_and_overrides
+ *= require ie10-viewport-bug-workaround
+ *= require jumbotron-narrow
+ *= require profile_card
  *= require_tree .
  *= require_self
  */

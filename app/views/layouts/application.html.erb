@@ -1,14 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Peopledb</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "PeopleDB" %></title>
   <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+  <!-- Material Design fonts -->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Bootstrap Material Design -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.8/css/bootstrap-material-design.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.8/css/ripples.css">
+
+  <%= javascript_include_tag "application" %>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Material Design -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.8/js/material.js" type="text/javascript"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.8/js/ripples.js" type="text/javascript"></script>
+
+  <script>
+      $.material.init();
+  </script>
 </head>
 <body>
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">About</a></li>
+        <li role="presentation"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">PeopleDB</h3>
+  </div>
 
-<%= yield %>
+  <%= bootstrap_flash %>
+  <%= yield %>
+
+  <footer class="footer">
+    <p>&copy; <%= Date.today.year %> PeopleDB</p>
+  </footer>
+
+</div>
+<!-- /container -->
 
 </body>
 </html>

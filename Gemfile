@@ -46,3 +46,5 @@ group :development do
   gem 'spring'
 end
 
+# Twitter bootstrap assets pipeline
+gem 'twitter-bootstrap-rails', '~> 3.2'
