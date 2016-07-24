@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
 
   # GET /people.json
   def index
-    @people = Person.approved.page(params[:page] || 1).per(params[:per_page] || 1)
+    @people = Person.approved.page(params[:page] || 1).per(params[:per_page] || 10)
 
     respond_to do |format|
       format.json
