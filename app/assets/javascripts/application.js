@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require ie10-viewport-bug-workaround
 //= require turbolinks
-//= require_tree .
+//= require people
 
 $(document).ready(function(){
     var $loading_spinner = $('#loading_spinner');
@@ -34,13 +34,11 @@ $(document).ready(function(){
     });
 
     $('#query').on('input', function() {
-        if($(this).val().length > 3){
-            $.ajax({
-                dataType: 'script',
-                method: "GET",
-                url: '<%= pages_welcome_path %>',
-                data: $(this.form).serialize()
-            })
-        }
+        $.ajax({
+            dataType: 'script',
+            method: "GET",
+            url: '/',
+            data: $(this.form).serialize()
+        })
     });
 });

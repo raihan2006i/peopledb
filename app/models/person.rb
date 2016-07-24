@@ -9,11 +9,16 @@ class Person < ActiveRecord::Base
 
   scope :approved, -> { where(approved: true) }
 
-  pg_search_scope :query, against: [:name, :email, :blood_group], :using => {
-                            :tsearch => {
-                                :prefix => true,
-                                :any_word => true
-                            }
-                        }
+  pg_search_scope :query, against: %i(
+                            name
+                            email
+                            blood_group
+                          ),
+                          using: {
+                              tsearch: {
+                                  dictionary: "english",
+                                  tsvector_column: "tsv",
+                              }
+                          }
 
 end

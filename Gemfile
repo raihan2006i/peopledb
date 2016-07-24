@@ -72,3 +72,11 @@ gem 'pg_search', '~> 1.0'
 # as they change
 gem 'hairtrigger', '~> 0.2.17'
 
+# The administration framework for Ruby on Rails.
+gem 'activeadmin', github: 'activeadmin'
+
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.2'
+
+# Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+gem 'faker', '~> 1.6'
