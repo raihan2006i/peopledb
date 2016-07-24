@@ -15,6 +15,7 @@
  *= require jumbotron-narrow
  *= require profile_card
  *= require formtastic-bootstrap
+ *= require spinner
  *= require_tree .
  *= require_self
  */

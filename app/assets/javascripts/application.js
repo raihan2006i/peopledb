@@ -17,3 +17,30 @@
 //= require ie10-viewport-bug-workaround
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+    var $loading_spinner = $('#loading_spinner');
+
+    jQuery.ajaxSetup({
+        beforeSend: function() {
+            $loading_spinner.removeClass('hidden');
+        },
+        complete: function(){
+            $loading_spinner.addClass('hidden');
+        },
+        success: function() {
+            $loading_spinner.addClass('hidden');
+        }
+    });
+
+    $('#query').on('input', function() {
+        if($(this).val().length > 3){
+            $.ajax({
+                dataType: 'script',
+                method: "GET",
+                url: '<%= pages_welcome_path %>',
+                data: $(this.form).serialize()
+            })
+        }
+    });
+});

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def welcome
-    @people = Person.page(params[:page] || 1).per(params[:per_page] || 10)
+    scope = params[:query].present? ? Person.query(params[:query]) : Person
+    @people = scope.page(params[:page] || 1).per(params[:per_page] || 5)
   end
 end

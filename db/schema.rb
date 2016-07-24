@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724011114) do
+ActiveRecord::Schema.define(version: 20160724043058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,25 @@ ActiveRecord::Schema.define(version: 20160724011114) do
     t.boolean  "approved",    default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.tsvector "tsv_body"
   end
+
+  add_index "people", ["tsv_body"], name: "index_people_on_tsv_body", using: :gin
+
+  # no candidate create_trigger statement could be found, creating an adapter-specific one
+  execute(<<-TRIGGERSQL)
+CREATE OR REPLACE FUNCTION public.people_before_insert_update_row_tr()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+BEGIN
+    new.tsv_body := to_tsvector('pg_catalog.english', coalesce(new.body,''));
+    RETURN NEW;
+END;
+$function$
+  TRIGGERSQL
+
+  # no candidate create_trigger statement could be found, creating an adapter-specific one
+  execute("CREATE TRIGGER people_before_insert_update_row_tr BEFORE INSERT OR UPDATE ON \"people\" FOR EACH ROW EXECUTE PROCEDURE people_before_insert_update_row_tr()")
 
 end

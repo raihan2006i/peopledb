@@ -1,0 +1,22 @@
+<div class="well">
+
+  <h1>Results <a href="<%= new_person_path %>" class="btn btn-xs btn-raised btn-success">Add<div class="ripple-container"></div></a></h1>
+
+  <% if results.present? %>
+      <div id="list_people" class="list-group">
+        <% results.each do |person| %>
+            <%= render partial: 'people/person', object: person %>
+        <% end %>
+      </div>
+
+      <div id="list_people_pagination" class="text-center">
+        <%= paginate results, remote: true, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-small pagination-centered' %>
+      </div>
+  <% else %>
+      <div class="alert alert-info">
+        There are no people <%= params[:query].present? ? ' found yet based on your search' : ' yet ' %> <i class="material-icons">face</i>
+        <a href="<%= new_person_path %>" class="btn btn-raised btn-success">Add<div class="ripple-container"></div></a> yourself now!
+      </div>
+
+  <% end %>
+</div>

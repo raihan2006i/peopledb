@@ -65,3 +65,10 @@ gem 'phony_rails', '~> 0.13.0'
 gem 'kaminari', '~> 0.17.0'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
 
+# PgSearch builds Active Record named scopes that take advantage of PostgreSQL's full text search
+gem 'pg_search', '~> 1.0'
+
+# allows you to declare database triggers in ruby in your models, and then generate appropriate migrations
+# as they change
+gem 'hairtrigger', '~> 0.2.17'
+
