@@ -1,0 +1,6 @@
+$('#list_people').fadeOut("slow").empty();
+<% @people.each do |person| %>
+    $('#list_people').append('<%= j render(partial: 'people/person', object: person) %>').hide().show('slow');
+<% end %>
+$('#list_people_pagination').empty();
+$('#list_people_pagination').html('<%= j paginate(@people, remote: true, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-small pagination-centered') %>');

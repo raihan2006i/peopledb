@@ -1,0 +1,15 @@
+<%= semantic_form_for @person do |f| %>
+    <%= f.inputs do %>
+        <%= f.input :name %>
+        <%= f.input :email %>
+        <%= f.input :blood_group, collection: Person::BLOOD_GROUPS %>
+        <%= f.input :profession %>
+        <%= f.input :address, input_html: { rows: 3 } %>
+        <%= f.input :phone %>
+    <% end %>
+
+    <%= f.actions do %>
+        <%= f.action :submit, as: :button, button_html: { class: 'btn btn-raised btn-primary' } %>
+        <%= f.action :cancel, as: :link, button_html: { class: 'btn btn-raised btn-danger' } %>
+    <%- end %>
+<% end %>

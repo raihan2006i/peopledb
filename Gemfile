@@ -48,3 +48,20 @@ end
 
 # Twitter bootstrap assets pipeline
 gem 'twitter-bootstrap-rails', '~> 3.2'
+
+# A Rails form builder plugin/gem with semantically rich and accessible markup
+gem 'formtastic', '~> 3.1'
+
+# Formtastic form builder to generate Twitter Bootstrap-friendly markup.
+
+gem 'formtastic-bootstrap', '~> 3.1'
+
+# Ruby (and Rails) Gravatar helpers with unique options like Proc's for default images,
+# support for gravatar.com's multiple host names, ability to define reusable styles and much more...
+gem 'gravatarify', '~> 3.1'
+
+gem 'phony_rails', '~> 0.13.0'
+
+gem 'kaminari', '~> 0.17.0'
+gem 'bootstrap-kaminari-views', '~> 0.0.5'
+

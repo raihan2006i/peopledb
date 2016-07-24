@@ -38,7 +38,8 @@
   <div class="header clearfix">
     <nav>
       <ul class="nav nav-pills pull-right">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation" class="<%= 'active' if params[:action] == 'welcome' %>"><a href="<%= root_path %>">Home</a></li>
+        <li role="presentation" class="<%= 'active' if params[:action] == 'new' %>"><a href="<%= new_person_path %>">Add</a></li>
         <li role="presentation"><a href="#">About</a></li>
         <li role="presentation"><a href="#">Contact</a></li>
       </ul>

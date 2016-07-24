@@ -1,0 +1,11 @@
+<div class="list-group-item">
+  <div class="row-picture">
+    <%= gravatar_tag person.email, size: 100, html: { class: 'circle', alt: 'icon' } %>
+  </div>
+  <div class="row-content">
+    <h4 class="list-group-item-heading"><%= person.name %></h4>
+
+    <p class="list-group-item-text"><%= person.blood_group %></p>
+  </div>
+</div>
+<div class="list-group-separator"></div>
